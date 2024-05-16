@@ -114,16 +114,15 @@ class Game {
         if(deltaTime){
           this.timer += deltaTime
           this.handlePeriodicEvents(deltaTime)
-        }
-        if(this.frameHold < this.ms){
-            this.frameHold += deltaTime
-        } else{
+          this.frameHold += deltaTime
+          if(this.frameHold >= this.ms){
             this.background.update()
-            this.player.update()
-            this.obstacles.forEach(obstacle => {
-                obstacle.update()
-            })
-            this.frameHold = this.frameHold % this.ms
+                this.player.update()
+                this.obstacles.forEach(obstacle => {
+                    obstacle.update()
+                })
+                this.frameHold = Math.abs(this.frameHold - this.ms)
+            }
         }
         this.drawStatusText()
     }
