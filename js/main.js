@@ -28,6 +28,8 @@ class Game {
         this.bottomMargin
         this.smallFont
         this.largeFont
+        this.frameHold
+        this.ms = 16
 
         this.resize(innerWidth,innerHeight)
 
@@ -112,12 +114,15 @@ class Game {
         if(deltaTime){
           this.timer += deltaTime
           this.handlePeriodicEvents(deltaTime)
-        } 
-        this.background.update()
-        this.player.update()
-        this.obstacles.forEach(obstacle => {
-            obstacle.update()
-        })
+        }
+        if(this.frameHold < this.ms){
+            this.background.update()
+            this.player.update()
+            this.obstacles.forEach(obstacle => {
+                obstacle.update()
+            })
+            this.frameHold = this.frameHold % this.ms
+        }
         this.drawStatusText()
     }
     createObstacles(){
