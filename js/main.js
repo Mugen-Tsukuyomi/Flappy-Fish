@@ -28,7 +28,7 @@ class Game {
         this.bottomMargin
         this.smallFont
         this.largeFont
-        this.frameHold
+        this.frameHold = 0
         this.ms = 16
 
         this.resize(innerWidth,innerHeight)
