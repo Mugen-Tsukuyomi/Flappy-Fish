@@ -115,7 +115,7 @@ class Game {
           this.timer += deltaTime
           this.frameHold += deltaTime
           if(this.frameHold >= this.ms){
-            this.handlePeriodicEvents(deltaTime)
+            this.handlePeriodicEvents(this.frameHold)
             this.background.update()
                 this.player.update()
                 this.obstacles.forEach(obstacle => {
