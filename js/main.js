@@ -29,7 +29,7 @@ class Game {
         this.smallFont
         this.largeFont
         this.frameHold = 0
-        this.ms = 16
+        this.ms = 16.6666
 
         this.resize(innerWidth,innerHeight)
 
